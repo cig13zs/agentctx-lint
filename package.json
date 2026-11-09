@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "description": "Lint AI agent instruction files and the scope chain that applies to a path",
   "license": "MIT",
+  "homepage": "https://github.com/cig13zs/agentctx-lint",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cig13zs/agentctx-lint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cig13zs/agentctx-lint/issues"
+  },
   "private": true,
   "type": "commonjs",
   "bin": {

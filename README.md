@@ -127,7 +127,7 @@ Prints issues in the working tree that are not present at that git ref. The scan
 The action installs and builds this repo, then runs the CLI with the workflow workspace as the working directory. The runner needs Node 18+.
 
 ```yaml
-- uses: ./
+- uses: cig13zs/agentctx-lint@v0.1.0
   with:
     format: github
     diff: origin/main
