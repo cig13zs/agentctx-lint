@@ -1,0 +1,7 @@
+---
+description: TypeScript
+globs: "**/*.ts"
+alwaysApply: false
+---
+
+TypeScript rules.

@@ -1,0 +1,7 @@
+---
+description: Docs
+globs: docs/**/*.md
+alwaysApply: false
+---
+
+Use pnpm. Install with `pnpm install`.

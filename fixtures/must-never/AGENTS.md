@@ -1,0 +1,2 @@
+- You must write unit tests for every change.
+- You must keep API responses backward compatible.

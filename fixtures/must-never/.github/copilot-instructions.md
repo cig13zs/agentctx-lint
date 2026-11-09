@@ -1,0 +1,2 @@
+- Never write unit tests for every change.
+- Always document public functions.

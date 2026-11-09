@@ -1,0 +1,57 @@
+name: agentctx-lint
+description: Lint AI agent instruction files for nested scope, conflicts, and stale references
+inputs:
+  path:
+    description: Directory to scan
+    required: false
+    default: "."
+  format:
+    description: Output format (text, json, or github)
+    required: false
+    default: github
+  config:
+    description: Path to agentctx.config.json. Empty uses the default lookup.
+    required: false
+    default: ""
+  diff:
+    description: Git ref. Report only issues introduced since this ref.
+    required: false
+    default: ""
+  fail-on-warning:
+    description: Exit non-zero when warnings are reported
+    required: false
+    default: "false"
+runs:
+  using: composite
+  steps:
+    - name: Build agentctx-lint
+      shell: bash
+      run: |
+        set -euo pipefail
+        npm ci --include=dev --prefix "$GITHUB_ACTION_PATH"
+        npm run build --prefix "$GITHUB_ACTION_PATH"
+    - name: Lint agent instructions
+      shell: bash
+      env:
+        INPUT_PATH: ${{ inputs.path }}
+        INPUT_FORMAT: ${{ inputs.format }}
+        INPUT_CONFIG: ${{ inputs.config }}
+        INPUT_DIFF: ${{ inputs.diff }}
+        INPUT_FAIL_ON_WARNING: ${{ inputs.fail-on-warning }}
+      run: |
+        set -euo pipefail
+        args=()
+        if [ "$INPUT_PATH" != "." ]; then
+          args+=("$INPUT_PATH")
+        fi
+        args+=("--format" "$INPUT_FORMAT")
+        if [ -n "$INPUT_CONFIG" ]; then
+          args+=("--config" "$INPUT_CONFIG")
+        fi
+        if [ -n "$INPUT_DIFF" ]; then
+          args+=("--diff" "$INPUT_DIFF")
+        fi
+        if [ "$INPUT_FAIL_ON_WARNING" = "true" ]; then
+          args+=("--fail-on-warning")
+        fi
+        node "$GITHUB_ACTION_PATH/dist/bin.js" "${args[@]}"

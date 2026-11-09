@@ -1,0 +1,6 @@
+{
+  "budgets": {
+    "maxTokens": 20,
+    "maxBytes": 80
+  }
+}

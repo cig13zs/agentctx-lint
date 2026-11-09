@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+Use pnpm. Install with `pnpm install`.

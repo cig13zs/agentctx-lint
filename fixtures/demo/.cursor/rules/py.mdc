@@ -1,0 +1,6 @@
+---
+globs: "**/*.py"
+alwaysApply: false
+---
+
+Python only.

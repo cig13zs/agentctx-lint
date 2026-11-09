@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "test": "vitest run",
+    "build": "tsc"
+  }
+}
