@@ -1,0 +1,31 @@
+{
+  "name": "agentctx-lint",
+  "version": "0.1.0",
+  "description": "Lint AI agent instruction files and the scope chain that applies to a path",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "bin": {
+    "agentctx-lint": "./dist/bin.js"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "action.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepare": "tsc",
+    "test": "tsc && vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.68",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  }
+}
